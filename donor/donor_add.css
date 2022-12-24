@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Neonderthaw&family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+}
+::-webkit-scrollbar-track {
+  background: #f9f7f7;
+}
+body {
+  background-color: #3f72af;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f7f7;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  padding: 1%;
+}
+.nav .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+}
+.nav .title .logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.nav .title .logo img {
+  width: 30px;
+}
+
+.nav .menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  animation: position;
+  animation-duration: 1s;
+}
+.nav .menu ul li {
+  list-style: none;
+  margin-left: 70px;
+}
+.nav .menu ul li a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav .menu ul li a span {
+  font-size: 20px;
+  font-weight: 400;
+  visibility: hidden;
+  animation: slide;
+  animation-duration: 1s;
+}
+.nav .menu ul li a:hover > span {
+  visibility: visible;
+  animation: dropup;
+  animation-duration: 1s;
+}
+.nav .menu ul li a#active span {
+  visibility: visible;
+  animation: dropup;
+  animation-duration: 1s;
+}
+.nav .bar {
+  display: none;
+}
+.nav .fa {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 1015px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav .title {
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 0px;
+  }
+  .nav .bar {
+    display: block;
+  }
+  .nav .menu {
+    display: none;
+  }
+  .nav .menu.res {
+    display: block;
+    animation: dropup;
+    animation-duration: 1s;
+  }
+  .nav .menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav .menu ul li {
+    margin-left: 0%;
+    margin-top: 20px;
+  }
+  .nav .menu.menu.res ul a span {
+    animation: slide;
+    animation-duration: 1s;
+  }
+}
+.container {
+  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(114.83deg, rgba(255, 255, 255, 0.5) 0.8%, rgba(3, 17, 30, 0) 101.31%);
+    filter: drop-shadow(0px 25px 25px rgba(0, 0, 0, 0.15));
+    backdrop-filter: blur(20px);
+    border-radius: 30px; */
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 40%;
+  border-radius: 30px;
+  padding: 3% 0%;
+  background-color: #1f4690;
+  color: #dbe2ef;
+}
+form input,
+form select {
+  width: 250px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dbe2ef;
+  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+form h2 {
+  font-size: 30px;
+}
+form p {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-bottom: -30px;
+}
+form input[type="submit"] {
+  width: 100px;
+  height: 36px;
+  background-color: #dbe2ef;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  transition: 0.5s;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #1f4690;
+  cursor: pointer;
+}
+.input_file {
+  color: #000;
+}
+
+form input[type="submit"]:hover {
+  transform: scaleY(1.1);
+}
+
+.container p {
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 900px) {
+  form {
+    width: 80%;
+  }
+  .container {
+    padding-top: 15%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  form {
+    width: 95%;
+  }
+  .container {
+    padding-top: 20%;
+  }
+}
+
+@keyframes dropup {
+  0% {
+    opacity: 0;
+    transform: translate(0, -200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes dropup {
+  0% {
+    opacity: 0;
+    transform: translate(0, -200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translate(-100px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translate(-100px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
